@@ -1,7 +1,9 @@
 @extends('app')
 @section('content')
     <div class="container">
-
+        @if(Session::has('logout'))
+            <h1>{{Session::get('logout')}}</h1>
+        @endif
         <div class="row row-offcanvas row-offcanvas-right">
 
             <div class="col-xs-12 col-sm-9">
@@ -88,7 +90,7 @@
                 </div><!--/row-->
             </div><!--/.col-xs-12.col-sm-9-->
 
-            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+            <div class="col-xs-12 col-sm-3 sidebar-offcanvas" id="sidebar">
                 <div class="list-group">
                     <a href="#" class="list-group-item active">Najnovije vesti</a>
                    @if($news)
@@ -99,7 +101,7 @@
                 </div>
             </div><!--/.sidebar-offcanvas-->
             <!-- Sidebar sa komentarima-->
-            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+            <div class="col-xs-12 col-sm-3 sidebar-offcanvas" id="sidebar">
                 <div class="list-group">
                     <a href="#" class="list-group-item active">Najčitanije vesti</a>
                     @if($news)
@@ -111,7 +113,7 @@
             </div><!--/.sidebar-offcanvas-->
 
             <!-- Sidebar sa komentarima-->
-            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+            <div class="col-xs-12 col-sm-3 sidebar-offcanvas" id="sidebar">
                 <div class="list-group">
                     <a href="#" class="list-group-item active">Komentari</a>
                     @if($comments)

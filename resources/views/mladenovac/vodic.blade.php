@@ -19,7 +19,7 @@
                 </div><br><hr>
             @endforeach
         @else
-            <h1 class="text-center">Trenutno nemamo vesti za sekciju biznis</h1>
+            <h1 class="text-center">Trenutno nemamo vesti za sekciju vodič</h1>
         @endif
     </div>
 @stop

@@ -1,4 +1,4 @@
-@extends('../app')
+@extends('app')
 
 @section('content')
 
@@ -19,7 +19,7 @@
                 </div><br><hr>
             @endforeach
         @else
-            <h1 class="text-center">Trenutno nemamo vesti za sekciju biznis</h1>
+            <h1 class="text-center">Trenutno nemamo vesti za sekciju Beograd</h1>
         @endif
     </div>
 @stop

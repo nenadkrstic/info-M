@@ -22,8 +22,8 @@ class SportController extends Controller
         return view('sport.odbojka',compact('odbojka'));
     }
 
-    public function ostaliSportovi(){
+    public function ostalisportovi(){
         $ostalisportovi = DB::table('news')->where('status','=', 'ostalisportovi')->get();
-        return view('sport.ostaliSportovi');
+        return view('sport.ostalisportovi',compact('ostalisportovi'));
     }
 }

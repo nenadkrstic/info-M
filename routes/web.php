@@ -11,12 +11,18 @@
 |
 */
 
-
-Route::get('/home','pageController@home');
 Route::get('/','pageController@home');
+Route::get('/pocetna','pageController@pocetna');
+
+Route::get('logout','PageController@logout');
 
 //Mladenovac Vesti----------------------------
 Route::get('vesti','MladenovacController@vesti');
+Route::get('hronika','MladenovacController@hronika');
+Route::get('sinfo','MladenovacController@sinfo');
+Route::get('vodic','MladenovacController@vodic');
+Route::get('vreme','MladenovacController@vreme');
+
 
 //MLadenovac Vesti kraj-----------------------
 
@@ -25,11 +31,29 @@ Route::get('vesti','MladenovacController@vesti');
 Route::get('fudbal','SportController@fudbal');
 Route::get('kosarka','SportController@kosarka');
 Route::get('odbojka','SportController@odbojka');
-Route::get('ostaliSportovi','SportController@ostaliSportovi');
+Route::get('ostalisportovi','SportController@ostaliSportovi');
 
 
 //Sport kraj-------------
 Route::get('celaVest/{id}','PageController@celaVest');
+
+//Info--------------------------------
+Route::get('beograd','InfoController@beograd');
+Route::get('srbija','InfoController@srbija');
+Route::get('svet','InfoController@svet');
+Route::get('nauka','InfoController@nauka');
+Route::get('biznis','InfoController@biznis');
+Route::get('kultura','InfoController@kultura');
+Route::get('zanimljivosti','InfoController@zanimljivosti');
+Route::get('misljenja','InfoController@misljenja');
+//Kraj info---------------------------
+
+//Zabava------------------------------
+Route::get('film','ZabavaController@film');
+Route::get('muzika','ZabavaController@muzika');
+Route::get('desavanja','ZabavaController@desavanja');
+
+//Kraj zabava-------------------------
 
 
 

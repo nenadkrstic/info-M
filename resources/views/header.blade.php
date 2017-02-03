@@ -1,8 +1,6 @@
 <body>
 
-<div class="container">
-    <h1 class="text-center"><span>Info</span> blog Mladenovac</h1>
-    </divclass>
+
 
 
 <!-- Fixed navbar -->
@@ -13,12 +11,12 @@
                 <p>---</p>
 
             </button>
-            <a id="brand" class="navbar-brand" href="{{url('/')}}">InfoMladenovac</a>
+            <a id="brand" class="navbar-brand" href="{{url('/pocetna')}}">InfoMladenovac</a>
         </div>
 
         <div id="navbar" class="collapse navbar-collapse ">
             <ul id class="nav navbar-nav text-center">
-                <li class="active text-center"><a href="{{url('/')}}">Home</a></li>
+                <li class="active text-center"><a href="{{url('/pocetna')}}">Home</a></li>
 
                 <!--Padajuci meni info -->
 
@@ -29,8 +27,8 @@
                         <ul id="info" class="dropdown-menu text-center">
                             <li><a href="{{url('vesti')}}" >Vesti</a></li>
                             <li><a href="{{url('hronika')}}" >Hronika</a></li>
-                            <li><a href="{{url('servisneInformacije')}}" >Servisne infomacije</a></li>
-                            <li><a href="{{url('vodič')}}" >Vodič</a></li>
+                            <li><a href="{{url('sinfo')}}" >Servisne infomacije</a></li>
+                            <li><a href="{{url('vodic')}}" >Vodič</a></li>
                             <li><a href="{{url('vreme')}}" >Vreme</a></li>
 
 
@@ -51,7 +49,7 @@
                             <li><a href="{{url('nauka')}}">Nauka i tehnolofija</a></li>
                             <li><a href="{{url('biznis')}}">Biznis i ekonomija</a></li>
                             <li><a href="{{url('kultura')}}">Kultura i umetnost</a></li>
-                            <li><a href="{{url('zanimljivost')}}">Zanimljivosti</a></li>
+                            <li><a href="{{url('zanimljivosti')}}">Zanimljivosti</a></li>
                             <li><a href="{{url('misljenja')}}">Mišljenja i intervjui</a></li>
 
                         </ul>
@@ -68,7 +66,7 @@
                             <li><a href="{{url('fudbal')}}">Fudbal</a></li>
                             <li><a href="{{url('kosarka')}}">Košarka</a></li>
                             <li><a href="{{url('odbojka')}}">Odbojka</a></li>
-                            <li><a href="{{url('ostaliSportovi')}}">Ostali sportovi</a></li>
+                            <li><a href="{{url('ostalisportovi')}}">Ostali sportovi</a></li>
 
                         </ul>
                     </li>
@@ -93,16 +91,28 @@
             <!--Padajuci meni Korisnik -->
 
             <ul class="nav navbar-nav navbar-right ">
+                @if(Auth::check())
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}  <span class="caret"></span></a>
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Korisnik <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#" >Ime:</a></li>
-                        <li><a href="#" >Prezime:</a></li>
-                        <li><a href="#" >E-mail:</a></li>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" >Ime: {{Auth::user()->name}}</a></li>
+                                    <li><a href="#" >Prezime:{{Auth::user()->lname}}</a></li>
+                                    <li><a href="#" >E-mail: {{Auth::user()->email}}</a></li><br>
+                                    <li><a href="{{url('logout')}}">Logout</a>
 
-                    </ul>
-                </li>
+                                </ul>
+
+                        </li>
+                    @else
+
+                        <li class="dropdown">
+                            <li><a href="{{url('register')}}">Registracija</a></li>
+                            <li><a  href="{{url('login')}}" >LogIn</a></li>
+
+                        </li>
+
+                   @endif
             </ul>
         </div><!-- /.nav-collapse -->
     </div><!-- /.container -->

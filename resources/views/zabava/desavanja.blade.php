@@ -1,8 +1,9 @@
-@extends('../app')
+@extends('app')
 
 @section('content')
 
     <div class="container">
+        <h1 class="text-center">Dešavanja</h1><hr>
         @if(isset($fudbal))
             @foreach($fudbal as $fud)
                 <div class="media">
@@ -19,7 +20,7 @@
                 </div><br><hr>
             @endforeach
         @else
-            <h1 class="text-center">Trenutno nemamo vesti za sekciju biznis</h1>
+            <h1 class="text-center">Trenutno nemamo vesti za sekciju desavanja</h1>
         @endif
     </div>
 @stop

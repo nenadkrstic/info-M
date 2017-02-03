@@ -13,6 +13,17 @@ body {
 body h1,h2,h3,h4,h5,h6{
     font-family:"Book Antiqua";
 }
+/*Registracioni panel*/
+.panel-heading{
+    text-align: center;
+    color: #FFFFFF !important;
+    background:#2a88bd !important;
+}
+.panel label{
+    color: #2a88bd;
+}
+
+/*Login panel*/
 
 
 /*
@@ -70,9 +81,12 @@ v navbar-nav{
     color: #ffffff;
 }
 #navbar ul li a:hover{
-    color: #2a88bd;
+    color: gray;
     background-color: #ffffff;
 }
+
+
+
 #vestSrednja{
 
 }

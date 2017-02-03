@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container">
-        @foreach($fudbal as $fud)
+        <h1 class="text-center">Košarka</h1><hr>
+        @foreach($kosarka as $kos)
             <div class="media">
                 <div class="media-left">
                     <a href="#">
@@ -10,8 +11,8 @@
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading">{{$fud->title}}</h4>
-                    <p class="media-heading" > {{$fud->news}}</p>
+                    <h4 class="media-heading">{{$kos->title}}</h4>
+                    <p class="media-heading" > {{$kos->news}}</p>
                 </div>
             </div><br><hr>
         @endforeach
