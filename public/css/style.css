@@ -1,0 +1,109 @@
+/*
+* Style tweaks
+* --------------------------------------------------
+*/
+html,
+body {
+    overflow-x: hidden; /* Prevent scroll on narrow devices */
+    color:#1f648b;
+}
+body {
+    padding-top: 100px;
+}
+body h1,h2,h3,h4,h5,h6{
+    font-family:"Book Antiqua";
+}
+
+
+/*
+ * Custom styles
+ */
+.navbar-brand {
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #ffffff;
+    background-color: #2a88bd;
+    font-size: 24px;
+}
+
+.navbar-container {
+
+    background-color: #2a88bd;
+    padding: 20px 0 20px 0;
+}
+
+.navbar.navbar-fixed-top.fixed-theme {
+
+    background-color: #2a88bd;
+    border-color: #2a88bd;
+    box-shadow: 0 0 5px rgba(0,0,0,.8);
+}
+
+.navbar-brand.fixed-theme {
+
+    font-size: 18px;
+}
+
+.navbar-container.fixed-theme {
+    padding: 0;
+}
+
+.navbar-brand.fixed-theme{
+    margin-top:0px;
+}
+.navbar-container.fixed-theme,
+.navbar.navbar-fixed-top.fixed-theme,
+.navbar-brand,
+.navbar-container{
+
+    padding: 0;
+    transition: 0.8s;
+    -webkit-transition:  0.8s;
+}
+v navbar-nav{
+
+    background-color:#222;
+}
+#navbar ul li a{
+
+    background-color: #2a88bd;
+    color: #ffffff;
+}
+#navbar ul li a:hover{
+    color: #2a88bd;
+    background-color: #ffffff;
+}
+#vestSrednja{
+
+}
+
+#footerMladenovac{
+
+}
+
+#footer {
+    margin-top: 40px;
+    min-height: 400px;
+    background-color:#2a88bd ;
+    padding: 20px;
+    color: #FFFFFF;
+}
+#footer a{
+    font-size: 18px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+#footer a:hover{
+    -webkit-transition: width 2s; /* Safari */
+    transition: width  2s;
+    color:lightslategray ;
+
+    margin-top: 5px;
+}
+#footer ul li{
+    margin-top: 5px;
+    list-style: none;
+}
+#footerInfo{
+
+}
