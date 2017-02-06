@@ -1,5 +1,11 @@
 $(document).ready(function(){
 
+    $('.dropdown').hover(function(){
+        $('.dropdown-toggle', this).trigger('click');
+    });
+
+    $('#poruka').fadeOut(4000);
+   $('#dobrodosao').slideUp(5000);
 
     /**
      * This object controls the nav bar. Implement the add and remove
@@ -77,6 +83,25 @@ $(document).ready(function(){
      */
     offSetManager();
 });
+
+function optionValue($value){
+
+    if($value == 'mladenovac') {
+
+        $('#load').load('../resources/sekcije/mladenovac.html');
+    }
+    if($value === 'info') {
+        $('#load').load('../resources/sekcije/info.html');
+    }
+    if($value == 'sport') {
+        $('#load').load('../resources/sekcije/sport.html');
+    }
+
+    if($value == 'zabava') {
+        $('#load').load('../resources/sekcije/zabava.html');
+    }
+
+}
 
 
 

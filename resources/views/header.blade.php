@@ -11,11 +11,11 @@
                 <p>---</p>
 
             </button>
-            <a id="brand" class="navbar-brand" href="{{url('/pocetna')}}">InfoMladenovac</a>
+            <a id="brand" class="navbar-brand" href="{{url('/pocetna')}}">InfoM</a>
         </div>
 
         <div id="navbar" class="collapse navbar-collapse ">
-            <ul id class="nav navbar-nav text-center">
+            <ul  class="nav navbar-nav text-center">
                 <li class="active text-center"><a href="{{url('/pocetna')}}">Home</a></li>
 
                 <!--Padajuci meni info -->
@@ -30,8 +30,6 @@
                             <li><a href="{{url('sinfo')}}" >Servisne infomacije</a></li>
                             <li><a href="{{url('vodic')}}" >Vodič</a></li>
                             <li><a href="{{url('vreme')}}" >Vreme</a></li>
-
-
                         </ul>
                     </li>
                 </ul>
@@ -86,20 +84,54 @@
                         </ul>
                     </li>
                 </ul>
+
+                <ul class="nav navbar-nav navbar-left text-center">
+
+                    <li class="dropdown text-center">
+                        <a href="#" class="dropdown-toggle text-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FSMladenovac <span class="caret"></span></a>
+                        <ul class="dropdown-menu text-right">
+                            <li><a href="{{url('manifestacije')}}">Manifestacije od znacaja</a></li>
+                            <li><a href="{{url('ostale_manifestacije')}}">Ostale manifestacije</a></li>
+                            <li><a href="{{url('programi')}}">Programi sportskog saveza</a></li>
+                            <li><a href="{{url('konkursi')}}">Konkursi/javni pozivi</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+
+
+
             </ul>
+
+            <span class="col-sm-5 col-md-3">
+                    <form class="navbar-form text-center" role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search" name="q">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </span>
+
+
 
             <!--Padajuci meni Korisnik -->
 
             <ul class="nav navbar-nav navbar-right ">
                 @if(Auth::check())
-                        <li class="dropdown">
+                        <li class="dropdown text-center">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}  <span class="caret"></span></a>
 
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu text-center">
                                     <li><a href="#" >Ime: {{Auth::user()->name}}</a></li>
                                     <li><a href="#" >Prezime:{{Auth::user()->lname}}</a></li>
                                     <li><a href="#" >E-mail: {{Auth::user()->email}}</a></li><br>
                                     <li><a href="{{url('logout')}}">Logout</a>
+                                        @if(Auth::user()->status = 9 && Auth::user()->name == 'Nenad')
+                                            <li><a href="{{url('admin')}}">admin panel</a>
+                                       @endif
 
                                 </ul>
 

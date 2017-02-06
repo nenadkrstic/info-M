@@ -1,8 +1,10 @@
 @extends('app')
 @section('content')
     <div class="container">
-        @if(Session::has('logout'))
-            <h1>{{Session::get('logout')}}</h1>
+        @if(Session::has('poruka'))
+           <div id="poruka"  class="jumbotron">
+               <h2 class="text-center">{{Session::get('poruka')}}</h2>
+           </div>
         @endif
         <div class="row row-offcanvas row-offcanvas-right">
 
@@ -13,81 +15,65 @@
                 <div class="jumbotron">
                     @if($news)
 
-                            <h2>{{$news[0]->title}}</h2>
+                        <a href="{{url('celaVest')}}/{{$news[0]->id}}"><h2>{{$news[0]->title}}</h2></a>
                                <img src="../resources/images/novak1.jpg" width="800" class="img-thumbnail">
                             <h5>{{$news[0]->description}}</h5>
                             <h5>{{$news[0]->title}}</h5>
                             <h4><strong>Objavljeno: </strong><br>{{$news[0]->created_at}}</h4>
-                        <p><a class="btn btn-default" href="{{url('celaVest')}}/{{$news[0]->id}}" role="button">Više »</a></p>
-                        @endif
+                        <span><a class="btn btn-default" href="{{url('celaVest')}}/{{$news[0]->id}}" role="button">Više »</a>
+                            @if(Auth::check())
+
+
+                                @if(Auth::user()->status = 9)
+                                    <a class="link" href="{{url('izmeni_vest')}}/{{$news[0]->id}}"><button class="btn-xs btn-primary">Izmeni vest</button></a>
+                                    <a class="link" href="{{url('obrisi_vest')}}/{{$news[0]->id}}"><button class="btn-xs btn-danger">Obrisi vest</button></a>
+                                @endif
+
+
+
+                            @endif
+
+                        </span>
+                    @endif
+                    <!--Opicije za admin------------>
+
+                    <!--Kraj opicije za admin------------>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 col-lg-4">
-                        @if(isset($news))
-                            <h4>{{$news[1]->title}}</h4>
-                            <img src="../resources/images/novak.jpg" width="500px" class="img-thumbnail">
-                            <h5>{{$news[1]->description}}</h5>
-                            <h5>{{$news[1]->title}}</h5>
-                            <h4><strong>Objavljeno: </strong><br>{{$news[0]->created_at}}</h4>
-                            <p><a class="btn btn-default" href="{{url('celaVest')}}/{{$news[1]->id}}" role="button">Više »</a></p>
-                        @endif
-                    </div><!--/.col-xs-12.col-lg-4-->
-                    <div class="col-xs-12 col-lg-4">
-                        @if(isset($news))
 
-                            <h4>{{$news[2]->title}}</h4>
+
+                </div><!--/.col-xs-12.col-lg-4-->
+                @foreach($news as $n)
+                    <div id="centralne_vesti" class="col-xs-12 col-lg-4">
+
+
+                            <a href="{{url('celaVest')}}/{{$n->id}}"><h4>{{$n->title}}</h4></a>
                             <img src="../resources/images/img2.jpg" width="500px" class="img-thumbnail">
-                            <h5>{{$news[2]->description}}</h5>
-                            <h5>{{$news[2]->title}}</h5>
-                            <h4><strong>Objavljeno: </strong><br>{{$news[2]->created_at}}</h4>
-                            <p><a class="btn btn-default" href="{{url('celaVest')}}/{{$news[2]->id}}" role="button">više »</a></p>
-                        @endif
-                    </div><!--/.col-xs-12.col-lg-4-->
-                    <div class="col-xs-12 col-lg-4">
-                        @if(isset($news))
+                            <h5>{{$n->description}}</h5>
+                            <h5>{{$n->title}}</h5>
+                            <h4><strong>Objavljeno: </strong><br>{{$n->created_at}}</h4>
+                            <span><a class="btn btn-default" href="{{url('celaVest')}}/{{$n->id}}" role="button">više »</a>
+                                @if(Auth::check())
 
-                            <h4>{{$news[3]->title}}</h4>
-                            <img src="../resources/images/img1.jpg" width="500px" class="img-thumbnail">
-                            <h5>{{$news[3]->description}}</h5>
-                            <h5>{{$news[3]->title}}</h5>
-                            <h4><strong>Objavljeno: </strong><br>{{$news[3]->created_at}}</h4>
-                            <p><a class="btn btn-default" href="{{url('celaVest')}}/{{$news[3]->id}}" role="button">Više »</a></p>
-                        @endif
-                    </div><!--/.col-xs-12.col-lg-4-->
-                    <div class="col-xs-12 col-lg-4">
-                        @if(isset($news))
 
-                            <h4>{{$news[4]->title}}</h4>
-                            <img src="../resources/images/img1.jpg" width="500px" class="img-thumbnail">
-                            <h5>{{$news[4]->description}}</h5>
-                            <h5>{{$news[4]->title}}</h5>
-                            <h4><strong>Objavljeno: </strong><br>{{$news[4]->created_at}}</h4>
-                            <p><a class="btn btn-default" href="{{url('celaVest')}}/{{$news[4]->id}}" role="button">Više »</a></p>
-                        @endif
-                    </div><!--/.col-xs-12.col-lg-4-->
-                    <div class="col-xs-12 col-lg-4">
-                        @if(isset($news))
+                                        @if(Auth::user()->status = 9)
+                                        <a class="link" href="{{url('izmeni_vest')}}/{{$n->id}}"><button class="btn-xs btn-primary">Izmeni vest</button></a>
+                                        <a class="link" href="{{url('obrisi_vest')}}/{{$n->id}}"><button class="btn-xs btn-danger">Obrisi vest</button></a>
+                                        @endif
 
-                            <h4>{{$news[5]->title}}</h4>
-                            <img src="../resources/images/img1.jpg" width="500px" class="img-thumbnail">
-                            <h5>{{$news[5]->description}}</h5>
-                            <h5>{{$news[5]->title}}</h5>
-                            <h4><strong>Objavljeno: </strong><br>{{$news[5]->created_at}}</h4>
-                            <p><a class="btn btn-default" href="{{url('celaVest')}}/{{$news[5]->id}}" role="button">Više »</a></p>
-                        @endif
-                    </div><!--/.col-xs-12.col-lg-4-->
-                    <div class="col-xs-12 col-lg-4">
-                        @if(isset($news))
 
-                            <h4>{{$news[6]->title}}</h4>
-                            <img src="../resources/images/img1.jpg" width="500px" class="img-thumbnail">
-                            <h5>{{$news[6]->description}}</h5>
-                            <h5>{{$news[6]->title}}</h5>
-                            <h4><strong>Objavljeno: </strong><br>{{$news[6]->created_at}}</h4>
-                            <p><a class="btn btn-default" href="{{url('celaVest')}}/{{$news[6]->id}}" role="button">Više »</a></p>
-                        @endif
-                    </div><!--/.col-xs-6.col-lg-4-->
-                </div><!--/row-->
+
+                                @endif
+
+                            </span>
+                        <!--Opicije za admin------------>
+
+                    <!--Kraj opicije za admin------------>
+                    </div><!--/.col-xs-12.col-lg-4-->
+                @endforeach
+
+
+
             </div><!--/.col-xs-12.col-sm-9-->
 
             <div class="col-xs-12 col-sm-3 sidebar-offcanvas" id="sidebar">
@@ -104,9 +90,13 @@
             <div class="col-xs-12 col-sm-3 sidebar-offcanvas" id="sidebar">
                 <div class="list-group">
                     <a href="#" class="list-group-item active">Najčitanije vesti</a>
-                    @if($news)
-                        @foreach($news as $n)
-                            <a href="{{url('celaVest')}}/{{$lastNews->id}}" class="list-group-item ">{{$n->title}}</a>
+                    @if($naj_vest)
+                        @foreach($naj_vest as $n)
+
+                               <a href="#" class="list-group-item active"><strong>Broj pregleda: </strong>{{$n->naj_vest}}</a>
+                              <a href="{{url('celaVest')}}/{{$n->id}}" class="list-group-item ">  {{$n->title}}</a>
+
+
                         @endforeach
                     @endif
                 </div>
@@ -119,6 +109,18 @@
                     @if($comments)
                         @foreach($comments as $comment)
                             <a href="#" class="list-group-item ">{{$comment->comment}}</a>
+
+                            @if(Auth::check())
+
+
+                                @if(Auth::user()->status = 9)
+                                    <span><a class="link" href="{{url('obrisi_komentar')}}/{{$comment->id}}"><button class="btn-xs btn-danger">Obrisi komentar</button></a></span>
+
+                                @endif
+
+
+
+                            @endif
                         @endforeach
                     @endif
                 </div>

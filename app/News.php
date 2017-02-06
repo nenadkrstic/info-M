@@ -15,8 +15,7 @@ class News extends Model
         'status',
         'naj_vest'
 
+     ];
 
 
-
-    ];
 }

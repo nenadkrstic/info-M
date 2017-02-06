@@ -84,7 +84,13 @@ v navbar-nav{
     color: gray;
     background-color: #ffffff;
 }
-
+.link{
+    text-decoration: none;
+    color:#FFFFFF;
+}
+#centralne_vesti{
+    min-height: 600px;
+}
 
 
 #vestSrednja{

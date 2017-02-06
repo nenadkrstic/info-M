@@ -11,7 +11,18 @@
 |
 */
 
-Route::get('/','pageController@home');
+Route::group(['middleware'=>'admin'],function(){
+    Route::get('admin','AdminController@admin_panel');
+    Route::get('ubaci_vest','AdminController@ubaci_vest');
+    Route::post('snimi_vest','AdminController@snimi_vest');
+    Route::get('obrisi_vest/{id}','AdminController@obrisi_vest');
+    Route::get('izmeni_vest/{id}','AdminController@izmeni_vest');
+    Route::post('izmeni_vest_db/{id}','AdminController@izmeni_vest_db');
+});
+
+
+
+Route::get('/','pageController@pocetna');
 Route::get('/pocetna','pageController@pocetna');
 
 Route::get('logout','PageController@logout');
@@ -54,6 +65,13 @@ Route::get('muzika','ZabavaController@muzika');
 Route::get('desavanja','ZabavaController@desavanja');
 
 //Kraj zabava-------------------------
+
+//FSMladenobac-----------------------
+Route::get('manifestacije','FsmController@manifestacije');
+Route::get('ostale_manifestacije','FsmController@ostale_manifestacije');
+Route::get('programi','FsmController@programi');
+Route::get('konkursi','FsmController@konkursi');
+//Kraj FSM---------------------------
 
 
 
