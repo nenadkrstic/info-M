@@ -24,8 +24,8 @@ class messRequest extends FormRequest
     public function rules()
     {
         return [
-            'ime'=>'required',
-            'poruka'=>'require',
+            'name'=>'required|nullable|max:20',
+            'message'=>'required|max:1000',
         ];
     }
 }

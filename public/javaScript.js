@@ -1,9 +1,30 @@
 $(document).ready(function(){
 
+//Asinhrona pretraga search forme
+    $('#rez').hide();
+    $('#searchq').on('input',function () {
+        var searchq = $('#searchq').val();
+        $.ajax({
+            type:"GET",
+            url:"search_news",
+            data:{news:searchq},
+            success: function(data) {
+                if(data) {
+                    $('#rez').slideDown();
+                    $('#rez').html(data);
+                }else{
+                    $('#rez').slideUp(2000);
+                }
+            }
+        });
+
+    });
+//------------------------------------------------------
     $('.dropdown').hover(function(){
         $('.dropdown-toggle', this).trigger('click');
     });
 
+//Poruka o uspesnosti
     $('#poruka').fadeOut(4000);
    $('#dobrodosao').slideUp(5000);
 
@@ -83,7 +104,7 @@ $(document).ready(function(){
      */
     offSetManager();
 });
-
+//------------------------------------------------------------------------
 function optionValue($value){
 
     if($value == 'mladenovac') {
@@ -102,6 +123,34 @@ function optionValue($value){
     }
 
 }
+//---------------------------------------------------------------------------
+//Validacija forme Pisite nam
+function form_validate(){
+    var name = document.validate_form.name.value;
+    var mess = document.validate_form.message.value;
+    var form_name = document.getElementById('form_name');
+    var form_mess = document.getElementById('form_message');
+
+    if(name == ""){
+      form_name.innerHTML = 'Forma sa imenom ne sme biti prazna';
+        return false;
+    }
+
+    if(mess == ""){
+        form_mess.innerHTML='Forma sa porukom ne sme biti prazna';
+        return false;
+    }
+}
+//-----------------------------------------
+
+
+
+
+
+
+
+
+
 
 
 

@@ -3,6 +3,8 @@
 
 
 
+
+
 <!-- Fixed navbar -->
 <nav id="header" class="navbar navbar-fixed-top">
     <div id="header-container" class="container navbar-container">
@@ -107,10 +109,12 @@
             <span class="col-sm-5 col-md-3">
                     <form class="navbar-form text-center" role="search">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search" name="q">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            <input type="text" class="form-control" placeholder="Search" id="searchq" >
+                            <div id = "rez" class="text-left">
+
                             </div>
+
+
                         </div>
                     </form>
                 </span>

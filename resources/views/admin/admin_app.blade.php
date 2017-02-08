@@ -17,6 +17,7 @@
                     <li><a href="{{url('ubaci_vest')}}" >Ubaci vest</a></li>
                     <li><a href="{{url('obrisi_vest')}}" >Obrisi Vest</a></li>
                     <li><a href="{{url('izmeni_vest')}}" >Izmeni vest</a></li>
+                    <li><a href="{{url('poruka')}}" >Poruke sa forme</a></li>
                 </ul>
             </div>
 

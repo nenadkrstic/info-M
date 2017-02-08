@@ -18,6 +18,7 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('obrisi_vest/{id}','AdminController@obrisi_vest');
     Route::get('izmeni_vest/{id}','AdminController@izmeni_vest');
     Route::post('izmeni_vest_db/{id}','AdminController@izmeni_vest_db');
+    Route::get('poruka','AdminController@poruka');
 });
 
 
@@ -74,6 +75,13 @@ Route::get('konkursi','FsmController@konkursi');
 //Kraj FSM---------------------------
 
 
+Route::get('/search_news','PageController@search_news');
+/*Route::any('/search_news',function (){
+    if(Request::ajax()){
+        return 'PageController@search_news';
+    }
+
+});*/
 
 Auth::routes();
 

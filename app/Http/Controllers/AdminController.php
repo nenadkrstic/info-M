@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Messages;
 use Illuminate\Http\Request;
 
 use App\News;
@@ -55,6 +56,11 @@ class AdminController extends Controller
         Session::flash('poruka','Vest je uspešno izmenjena!!!');
        return redirect('');
 
+    }
+
+    public function poruka(){
+        $mess = Messages::all();
+        return view('admin.poruka',compact('mess'));
     }
 
 }

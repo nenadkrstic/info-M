@@ -1,8 +1,3 @@
-
-
-
-
-
 </div>
         <div id="footer" class="row">
             <!--footer Mladenovac-->
@@ -69,12 +64,12 @@
             <div class="col-xs-12 col-md-3">
                  <div class="form-group">
                      <h3 class="text-center">Pišite nam</h3><hr>
-                        {!!Form::open(['method'=>'post'])!!}
-
-                            {!! Form::label('Ime') !!}<br>
-                            {!! Form::text('ime',null,['class'=>'form-control']) !!}<br>
-                            {!! Form::label('Poruka') !!}<br>
-                            {!! Form::textarea('poruka',null,['class'=>'form-control','rows'=>'4']) !!}<br>
+                        {!!Form::open(['method'=>'post','action'=>'MesageController@getMess',
+                        'onsubmit="return(form_validate())"','name'=>'validate_form'])!!}
+                                 <p id="form_name" class="text-center"></p>
+                            {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Ime']) !!}<br>
+                                 <p id="form_message" class="text-center"></p>
+                            {!! Form::textarea('message',null,['class'=>'form-control','rows'=>'4','placeholder'=>'Poruka']) !!}<br>
                             {!! Form::submit('Pošalji',['class'=>'btn btn-primary']) !!}
 
                         {!!Form::close()!!}

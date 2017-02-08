@@ -6,9 +6,9 @@ use App\Comments;
 use App\news;
 use Auth;
 use DB;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-
+use Request;
 class PageController extends Controller
 {
 
@@ -31,6 +31,25 @@ class PageController extends Controller
          Session::flash('logOut','Hvala na poseti!!!');
         return redirect('/pocetna');
     }
+
+    public function search_news(){
+
+
+
+        if (isset($_GET['news'])) {
+            $news = $_GET['news'];
+            if(!empty($news)){
+            $rez = News::where('status', 'like', "%$news%")->limit(10)->get();
+            foreach ($rez as $r) {
+
+                echo "<a href='search_news/$r->id' >" .$r->title . '</a><br>';
+
+
+            }
+        }
+        }
+    }
+
 
 
 }

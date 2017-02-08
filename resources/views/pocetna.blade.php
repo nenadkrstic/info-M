@@ -1,6 +1,8 @@
 @extends('app')
 @section('content')
     <div class="container">
+        <div id="div_search" class="col-md-3"></div>
+
         @if(Session::has('poruka'))
            <div id="poruka"  class="jumbotron">
                <h2 class="text-center">{{Session::get('poruka')}}</h2>
