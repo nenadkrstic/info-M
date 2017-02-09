@@ -25,6 +25,7 @@ Route::group(['middleware'=>'admin'],function(){
 
 Route::get('/','pageController@pocetna');
 Route::get('/pocetna','pageController@pocetna');
+Route::post('pretraga','PageController@pretraga');
 
 Route::get('logout','PageController@logout');
 
@@ -88,3 +89,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::post('getMess','MesageController@getMess');
+

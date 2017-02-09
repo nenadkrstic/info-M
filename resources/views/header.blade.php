@@ -107,13 +107,18 @@
             </ul>
 
             <span class="col-sm-5 col-md-3">
-                    <form class="navbar-form text-center" role="search">
+                    <form class="navbar-form text-center" role="search" method="POST" action="{{url('pretraga')}}">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search" id="searchq" >
+                            {{csrf_field()}}
+                            <input type="text" name="pretraga" class="form-control" placeholder="Pretraga" id="searchq" >
                             <div id = "rez" class="text-left">
 
                             </div>
-
+                    <span class="input-group-btn">
+                        <button  class="btn btn-info btn-group-sm" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
 
                         </div>
                     </form>
