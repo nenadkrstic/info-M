@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Http\Controllers;
@@ -7,27 +8,34 @@ use DB;
 
 class MladenovacController extends Controller
 {
-    public function vesti(){
+    
+    
+    public function vesti()
+    {
         $vesti = DB::table('news')->where('section','=','vesti')->get();
         return view('mladenovac.vesti',compact('vesti'));
    }
 
-    public function hronika(){
+    public function hronika()
+    {
         $hronika = DB::table('news')->where('section','=','hronika')->get();
         return view('mladenovac.hronika');
     }
 
-    public function sinfo(){
+    public function sinfo()
+    {
         $sinfo = DB::table('news')->where('section','=','sinfo')->get();
         return view('mladenovac.sinfo');
     }
 
-    public function vodic(){
+    public function vodic()
+    {
         $vodic = DB::table('news')->where('section','=','vodic')->get();
         return view('mladenovac.vodic');
     }
 
-    public function vreme(){
+    public function vreme()
+    {
         return view('mladenovac.vreme');
     }
 }
