@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Http\Controllers;
@@ -6,23 +7,29 @@ use Illuminate\Http\Request;
 
 class InfoController extends Controller
 {
-    public function beograd(){
+    
+    public function beograd()
+    {
         return view('info.beograd');
     }
 
-    public function srbija(){
+    public function srbija()
+    {
         return view('info.srbija');
     }
 
-    public function svet(){
+    public function svet()
+    {
         return view('info.svet');
     }
 
-    public function nauka(){
+    public function nauka()
+    {
         return view('info.nauka');
     }
 
-    public function biznis(){
+    public function biznis()
+    {
         return view('info.biznis');
     }
 
