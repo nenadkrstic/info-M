@@ -9,7 +9,10 @@ use App\Messages;
 
 class MesageController extends Controller
 {
-     public function getMess(messRequest $request){
+     
+     
+     public function getMess(messRequest $request)
+     {
           $mess = $request->all() ;
           Session::flash('poruka','Poruka je uspešno poslata');
           Messages::create($mess);
