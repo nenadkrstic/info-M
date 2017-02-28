@@ -1,7 +1,6 @@
 <?php
-
-
 namespace App\Http\Controllers;
+
 use App\Comments;
 use App\news;
 use Auth;
@@ -9,6 +8,8 @@ use DB;
 use Request;
 //use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+
+
 
 class PageController extends Controller
 {
